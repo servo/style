@@ -37,6 +37,7 @@ ${helpers.single_keyword(
     "direction",
     "ltr rtl",
     engines="gecko servo",
+    servo_pref="layout.legacy_layout",
     animation_type="none",
     spec="https://drafts.csswg.org/css-writing-modes/#propdef-direction",
     gecko_enum_prefix="StyleDirection",

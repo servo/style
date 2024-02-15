@@ -245,7 +245,7 @@ ${helpers.predefined_type(
 ${helpers.predefined_type(
     "font-language-override",
     "FontLanguageOverride",
-    engines="gecko",
+    engines="gecko servo",
     initial_value="computed::FontLanguageOverride::normal()",
     initial_specified_value="specified::FontLanguageOverride::normal()",
     animation_type="discrete",
@@ -283,7 +283,7 @@ ${helpers.predefined_type(
 ${helpers.predefined_type(
     "-x-lang",
     "XLang",
-    engines="gecko",
+    engines="gecko servo",
     initial_value="computed::XLang::get_initial_value()",
     animation_type="none",
     enabled_in="",

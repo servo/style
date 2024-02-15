@@ -467,7 +467,12 @@ impl ToCss for FontFamily {
         let mut iter = self.families.iter();
         match iter.next() {
             Some(f) => f.to_css(dest)?,
-            None => return Ok(()),
+            None => {
+                #[cfg(feature = "gecko")]
+                return return Ok(());
+                #[cfg(feature = "servo")]
+                unreachable!();
+            },
         }
         for family in iter {
             dest.write_str(", ")?;
@@ -1206,7 +1211,7 @@ pub type FontStretchFixedPoint = FixedPoint<u16, FONT_STRETCH_FRACTION_BITS>;
 #[derive(
     Clone, ComputeSquaredDistance, Copy, Debug, MallocSizeOf, PartialEq, PartialOrd, ToResolvedValue,
 )]
-#[cfg_attr(feature = "servo", derive(Deserialize, Serialize))]
+#[cfg_attr(feature = "servo", derive(Deserialize, Hash, Serialize))]
 #[repr(C)]
 pub struct FontStretch(pub FontStretchFixedPoint);
 
