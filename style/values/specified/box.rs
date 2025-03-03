@@ -968,7 +968,7 @@ pub struct WillChange {
     /// A bitfield with the kind of change that the value will create, based
     /// on the above field.
     #[css(skip)]
-    bits: WillChangeBits,
+    pub bits: WillChangeBits,
 }
 
 impl WillChange {
